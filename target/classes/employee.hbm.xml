@@ -5,7 +5,9 @@
     <hibernate-mapping>
     
     <class name="com.tut.modal.entity.Employee" table="Emptable">
-    <id name ="id" column="EmpID"/>
+    <id name ="id" column="EmpID">   
+    <generator class ="identity"/>
+    </id>
     <property name="name" column="EmpName" />
      <property name="gender" column="EmpGender"/>
       <property name="salary" column="EmpSalary"/>
