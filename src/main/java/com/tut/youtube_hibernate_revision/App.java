@@ -15,7 +15,7 @@ public class App
 {
     public static void main( String[] args ) {
     	
-    	Employee e= new Employee(2,"akshit","male",96523);
+    	Employee e= new Employee(1,"akshit","male",96523);
     	
     SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
     Session session = sessionFactory.openSession();
