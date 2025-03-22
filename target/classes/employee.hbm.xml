@@ -4,7 +4,7 @@
     
     <hibernate-mapping>
     
-    <class name="com.tut.modal.entity.Employee" table="Emptable">
+    <class name="com.tut.modal.entity.Employee" table="Emptable2">
     <id name ="id" column="EmpID">   
     <generator class ="identity"/>
     </id>

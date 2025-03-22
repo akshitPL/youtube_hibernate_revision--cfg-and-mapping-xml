@@ -7,6 +7,10 @@ import com.tut.modal.entity.Employee;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.boot.Metadata;
+import org.hibernate.boot.MetadataSources;
+import org.hibernate.boot.registry.StandardServiceRegistry;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 /**
  * Hello world!
  *
@@ -14,15 +18,16 @@ import org.hibernate.Transaction;
 public class App 
 {
     public static void main( String[] args ) {
+      
+    	Employee e= new Employee("hjn","male",96523);
     	
-    	Employee e= new Employee("vishal","male",96523);
     	
-    SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+    	StandardServiceRegistry ssr =new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();
+    	Metadata meta = new MetadataSources(ssr).getMetadataBuilder().build();
+    	
+        SessionFactory sessionFactory = meta.buildSessionFactory();
     Session session = sessionFactory.openSession();
-     Transaction tx= session.beginTransaction();
-    
     session.save(e);
-    
-   tx.commit();
+   session.beginTransaction().commit();
 }
 }
